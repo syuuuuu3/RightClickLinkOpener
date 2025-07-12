@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Right-Click Link Opener",
+  "version": "1.0",
+  "description": "Chrome extension for selecting multiple links within a dragged area and opening them in background tabs (Alt+drag, max 10 links)",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["rangeLinkSelector.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
